@@ -61,33 +61,60 @@ string insertSpaceAfterPunctuation(const string &input) {
 }
 
 int main(int argc, const char * argv[]) {
+
+    int wybierz;
+
+    while (true) {
+    cout << endl;
+    cout << "Wybierz zadanie" << endl;
+    cout << "1. Sprawdzanie wyrazenia ktore odpowiada potedze 2 w zapisie binarnym:" << endl;
+    cout << "2. Sprawdzanie poprawnosci adresu ip:" << endl;
+    cout << "3. Wypisywanie numeru linii z pliku wejsciowego" << endl;
+    cout << "4. Wstawianie odstepu po kazdej kropce lub przecinku" << endl;
+    cout << "0. Wyjscie" << endl;
+    cout << endl;
+    cin>>wybierz;
+
     string test1,test2,testString2;
+
+    switch (wybierz) {
+
+    case 0:
+    return 0;
+
+    case 1:
     // Test funkcji isPowerOfTwo
     cout<<"Test isPowerOfTwo():\n";
     cout<<"Should be true: "<<isPowerOfTwo("100")<<"\n"; // 2^2 = 4
     cout<<"Should be false: "<<isPowerOfTwo("101")<<"\n"; // not a power of 2
     cout<<"Should be true: "<<isPowerOfTwo("1000")<<"\n"; // 2^3 = 8
-    cout<<"Wpisz testowy ciąg:"<<endl;
+    cout<<"Wpisz testowy ciag:"<<endl;
     cin>>test1;
     cout<<"Your test:  "<<isPowerOfTwo(test1)<<"\n";
     cout<<"\n";
+    break;
 
+    case 2:
     // Test funkcji isValidIP
     cout<<"Test isValidIP():\n";
     cout<<"Should be true: "<<isValidIP("192.168.0.1")<<"\n"; // valid IP
     cout<<"Should be false: "<<isValidIP("256.168.0.1")<<"\n"; // invalid IP (256)
     cout<<"Should be false: "<<isValidIP("192.168.0.")<<"\n"; // invalid IP (missing last octet)
-    cout<<"Wpisz testowy ciąg:"<<endl;
+    cout<<"Wpisz testowy ciag:"<<endl;
     cin>>test2;
     cout<<"Your test:  "<<isValidIP(test2)<<"\n";
     cout<<"\n";
+    break;
 
+    case 3:
     // Wywołanie funkcji printFileWithLineNumbers
     // Uwaga: upewnij się, że plik o podanej nazwie istnieje w tym samym katalogu co twój program
     cout<<"Test printFileWithLineNumbers():\n";
     printFileWithLineNumbers("test.txt");
     cout<<"\n";
+    break;
 
+    case 4:
      // Test funkcji insertSpaceAfterPunctuation
     cout<<"Test insertSpaceAfterPunctuation():\n";
     string testString = "Ciebie,witam.Abemus,papam.";
@@ -99,7 +126,9 @@ int main(int argc, const char * argv[]) {
     cout<<"Before: "<<testString2<<"\n";
     cout<<"After: "<<insertSpaceAfterPunctuation(testString2)<<"\n";
     cout<<"\n";
+    break;
 
 
-    return 0;
+    }
+}
 }
