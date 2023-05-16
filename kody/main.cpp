@@ -49,6 +49,17 @@ void printFileWithLineNumbers(const string &filename) {
     }
 }
 
+//zadanie czwarte
+string insertSpaceAfterPunctuation(const string &input) {
+    string output = input;
+    for (int i = output.length() - 1; i > 0; i--) {
+        if ((output[i] == '.' || output[i] == ',') && output[i + 1] != ' ') {
+            output.insert(i + 1, " ");
+        }
+    }
+    return output;
+}
+
 int main(int argc, const char * argv[]) {
     string test1,test2,testString2;
     // Test funkcji isPowerOfTwo
@@ -70,11 +81,23 @@ int main(int argc, const char * argv[]) {
     cin>>test2;
     cout<<"Your test:  "<<isValidIP(test2)<<"\n";
     cout<<"\n";
-    
+
     // Wywołanie funkcji printFileWithLineNumbers
     // Uwaga: upewnij się, że plik o podanej nazwie istnieje w tym samym katalogu co twój program
     cout<<"Test printFileWithLineNumbers():\n";
     printFileWithLineNumbers("test.txt");
+    cout<<"\n";
+
+     // Test funkcji insertSpaceAfterPunctuation
+    cout<<"Test insertSpaceAfterPunctuation():\n";
+    string testString = "Ciebie,witam.Abemus,papam.";
+    cout<<"Before: "<<testString<<"\n";
+    cout<<"After: "<<insertSpaceAfterPunctuation(testString)<<"\n";
+    // Test na wlasnym stringu
+    cout<<"Test insertSpaceAfterPunctuation() write your test string:\n";
+    cin>>testString2;
+    cout<<"Before: "<<testString2<<"\n";
+    cout<<"After: "<<insertSpaceAfterPunctuation(testString2)<<"\n";
     cout<<"\n";
 
 
